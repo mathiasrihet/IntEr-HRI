@@ -179,34 +179,3 @@ def test_classif(subject, epoch_in, epoch_out, w_length, subject_list, datadir, 
     result_df = pd.DataFrame(result_list) 
 
     return result_df
-
-
-
-
-cdir = os.getcwd()
-print(cdir)
-root = '\\'.join(cdir.split('\\')[:-1])
-# datadir = f'{root}\\Data'
-datadir = f'{root}\\IntEr-HRI\\Data'
-datasets = ['training data', 'test data']
-
-subject_list = ['AA56D', 'AC17D', 'AJ05D', 'AQ59D', 'AW59D', 'AY63D', 'BS34D', 'BY74D']
-
-ch_modality = '32'
-sfreq = 500
-w_length = 250
-w_step = 50
-w_timelength = w_length/sfreq
-
-preprocessing_modality = 'preprocessed'
-
-undersample = True
-normalization = True
-
-epoch_in, epoch_out = ('realwindow_training data', 'realwindow_test data')
-
-subject = 1
-
-df = test_classif(subject=subject, epoch_in=epoch_in, epoch_out=epoch_out, w_length=w_length, subject_list=subject_list, datadir=datadir, w_timelength=w_timelength, ch_modality=ch_modality, preprocessing_modality=preprocessing_modality, w_step=w_step, undersample=undersample, normalization=normalization)
-
-df.to_csv(f'{root}\\IntEr-HRI\\Results\\prediction_test.csv')
