@@ -4,7 +4,6 @@ This repository contains all the code needed to reproduce the results of the Cho
 
 ```
 📦IntEr-HRI
- ┣ 📂.git
  ┣ 📂Data    <-- EEG data from the competition are supposed to be downloaded here
  ┃ ┣ 📂EEG
  ┃ ┃ ┣ 📂test data
