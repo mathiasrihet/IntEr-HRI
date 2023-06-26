@@ -12,12 +12,14 @@ This repository contains all the code needed to reproduce the results of the Cho
  ┃ ┃ ┗ 📜readme EEG.txt
  ┃ ┗ 📜.gitkeep
  ┣ 📂Results
+ ┃ ┗ ...
  ┣ 📂Scripts
  ┃ ┣ 📜main_pipeline.py
+ ┃ ┣ 📜read_results.ipynb
  ┃ ┣ 📜single_subject_prediction.py
  ┃ ┣ 📜single_subject_validation.py
  ┃ ┗ 📜windowing_raw.py
- ┣ 📜.gitignore
+ ┣ 📜README.md
  ┗ 📜setup.py
  ```
 
