@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import pandas as pd
 from imblearn.under_sampling import RandomUnderSampler
@@ -50,6 +51,7 @@ def cluster_from_pred(a):
 
 def test_classif(subject, epoch_in, epoch_out, w_length, subject_list, datadir, w_timelength, ch_modality, preprocessing_modality, w_step, undersample, normalization):
     detect_peak_on = 'Cz'
+    test_index = [elem.split('.')[0][-1] for elem in os.listdir(f'{datadir}\\EEG\\test data\\{subject_list[subject]}\\data') if elem.split('.')[-1]=='vhdr']
 
     #Define some params
     if ch_modality == 'all':
@@ -88,14 +90,13 @@ def test_classif(subject, epoch_in, epoch_out, w_length, subject_list, datadir, 
     print('y_train_all', y_train_all.shape)
     X_test_all = np.load(f'{array_out}\\X_all.npy')
     print('X_test_all', X_test_all.shape)
-    y_test_all = np.load(f'{array_out}\\y_all.npy')
-    print('y_test_all', y_test_all.shape)
+    # y_test_all = np.load(f'{array_out}\\y_all.npy')
+    # print('y_test_all', y_test_all.shape)
 
     # print('X_train_all', X_train_all.shape)
     # print('y_train_all', y_train_all.shape)
     # print('X_test_all', X_test_all.shape)
     # print('y_test_all', y_test_all.shape)
-
 
     clfs = OrderedDict()
 
@@ -148,8 +149,9 @@ def test_classif(subject, epoch_in, epoch_out, w_length, subject_list, datadir, 
         'epoch_out':epoch_out,
         'preprocessing_modality':preprocessing_modality,
         'undersample':undersample,
-        'nomalization':normalization,
+        'normalization':normalization,
         'Method':m,
+        'test_idxs' : test_index,
         }
         
         y_pred = y_pred.reshape(2, -1)
@@ -180,3 +182,31 @@ def test_classif(subject, epoch_in, epoch_out, w_length, subject_list, datadir, 
 
 
 
+
+cdir = os.getcwd()
+print(cdir)
+root = '\\'.join(cdir.split('\\')[:-1])
+# datadir = f'{root}\\Data'
+datadir = f'{root}\\IntEr-HRI\\Data'
+datasets = ['training data', 'test data']
+
+subject_list = ['AA56D', 'AC17D', 'AJ05D', 'AQ59D', 'AW59D', 'AY63D', 'BS34D', 'BY74D']
+
+ch_modality = '32'
+sfreq = 500
+w_length = 250
+w_step = 50
+w_timelength = w_length/sfreq
+
+preprocessing_modality = 'preprocessed'
+
+undersample = True
+normalization = True
+
+epoch_in, epoch_out = ('realwindow_training data', 'realwindow_test data')
+
+subject = 1
+
+df = test_classif(subject=subject, epoch_in=epoch_in, epoch_out=epoch_out, w_length=w_length, subject_list=subject_list, datadir=datadir, w_timelength=w_timelength, ch_modality=ch_modality, preprocessing_modality=preprocessing_modality, w_step=w_step, undersample=undersample, normalization=normalization)
+
+df.to_csv(f'{root}\\IntEr-HRI\\Results\\prediction_test.csv')

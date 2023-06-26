@@ -63,11 +63,13 @@ cross_val_df.to_csv(f'{root}\\Results\\validation_{ch_modality}_{today}_{epoch_i
 df_list = []
 epoch_in, epoch_out = train_test_dict['prediction']
 
-for subject in range(len(subject_list)):
-    print(subject_list[subject-1])
-    df = test_classif(subject=subject, epoch_in=epoch_in, epoch_out=epoch_out, w_length=w_length, subject_list=subject_list, datadir=datadir, w_timelength=w_timelength, ch_modality=ch_modality, preprocessing_modality=preprocessing_modality, w_step=w_step, undersample=undersample, normalization=normalization)
-    df['subject'] = subject_list[subject-1]
-    df_list.append(df)
+for trial in range(10):
+    for subject in range(len(subject_list)):
+        print(subject_list[subject-1])
+        df = test_classif(subject=subject, epoch_in=epoch_in, epoch_out=epoch_out, w_length=w_length, subject_list=subject_list, datadir=datadir, w_timelength=w_timelength, ch_modality=ch_modality, preprocessing_modality=preprocessing_modality, w_step=w_step, undersample=undersample, normalization=normalization)
+        df['subject'] = subject_list[subject-1]
+        df['trial'] = trial
+        df_list.append(df)
 
 pred_df = pd.concat(df_list)
 pred_df.to_csv(f'{root}\\Results\\prediction_{ch_modality}_{today}_{epoch_in}_{name}.csv')
