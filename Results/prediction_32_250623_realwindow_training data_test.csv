@@ -1,0 +1,9 @@
+,w_length,w_step,epoch_in,epoch_out,preprocessing_modality,undersample,nomalization,Method,selected_idxs 0,selected_idxs 1,subject
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[36075, 54246, 71882, 85030, 93047, 106549]","[26469, 47222, 63536, 79889, 99921, 116639]",BY74D
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[22898, 38618, 52668, 65100, 71922, 110347]","[44649, 58640, 80499, 97301, 109949, 129713]",AA56D
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[24771, 45009, 65716, 86053, 106129, 121108]","[33214, 50743, 59532, 86157, 104899, 116155]",AC17D
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[4427, 30137, 46623, 59578, 82273, 121873]","[34690, 58135, 72881, 82530, 102010, 121249]",AJ05D
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[31185, 45558, 64125, 95164, 101358, 116682]","[20705, 35082, 51383, 59094, 73555, 119644]",AQ59D
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[16166, 28509, 53695, 82478, 95132, 104986]","[80359, 90004, 99578, 106258, 108314, 116035]",AW59D
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[20980, 44811, 60250, 81607, 101424, 120250]","[5152, 16947, 34068, 68807, 69857, 123696]",AY63D
+0,250,50,realwindow_training data,realwindow_test data,preprocessed,True,True,Cov + CSP + TS + SVM,"[50415, 67127, 84092, 104474, 117583, 128742]","[32915, 39619, 50267, 70110, 87506, 100173]",BS34D

@@ -1,36 +1,15 @@
-from sklearn.model_selection import train_test_split
-# from tensorflow import keras
-import keras
-import os
-import mne
-
 import numpy as np
 import pandas as pd
 from imblearn.under_sampling import RandomUnderSampler
-from sklearn.metrics import accuracy_score
-
-import matplotlib.pyplot as plt
 
 from collections import OrderedDict
 
-# Scikit-learn and Pyriemann ML functionalities
 from sklearn.pipeline import make_pipeline
-# from sklearn.model_selection import cross_validate, cross_val_predict
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
-# from sklearn.model_selection import cross_val_score, StratifiedShuffleSplit
-from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, balanced_accuracy_score, accuracy_score, roc_auc_score
-from pyriemann.estimation import ERPCovariances, XdawnCovariances, Xdawn, Covariances
+
+from pyriemann.estimation import Covariances
 from pyriemann.tangentspace import TangentSpace
 from pyriemann.spatialfilters import CSP
-from pyriemann.classification import MDM
-
-from itertools import combinations
-import random
-
-import tensorflow as tf
 
 def get_epoch_params(w_timelength, ch_modality, preprocessing_modality, w_step=1):
     return f'l{int(w_timelength*1000)}_s{w_step}_{ch_modality}_{preprocessing_modality}'

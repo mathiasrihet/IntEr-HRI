@@ -33,7 +33,7 @@ train_test_dict = {
     'prediction':('realwindow_training data', 'realwindow_test data'),
 }
 
-first_run = False
+first_run = True
 name = 'test'
 
 if first_run:
@@ -57,7 +57,7 @@ for trial in range(10):
         df_list.append(df)
 
 cross_val_df = pd.concat(df_list)
-cross_val_df.to_csv(f'{root}\\Results\\prediction{ch_modality}_{today}_{epoch_in}_{name}.csv')
+cross_val_df.to_csv(f'{root}\\Results\\validation_{ch_modality}_{today}_{epoch_in}_{name}.csv')
 
 
 df_list = []
@@ -70,5 +70,5 @@ for subject in range(len(subject_list)):
     df_list.append(df)
 
 pred_df = pd.concat(df_list)
-pred_df.to_csv(f'{root}\\Results\\prediction{ch_modality}_{today}_{epoch_in}_{name}.csv')
+pred_df.to_csv(f'{root}\\Results\\prediction_{ch_modality}_{today}_{epoch_in}_{name}.csv')
         
